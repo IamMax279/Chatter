@@ -5,7 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = {"com.max420.Scrapr_server.models"})
+@ComponentScan(basePackages = {
+		"com.max420.Scrapr_server.models",
+		"com.max420.Scrapr_server.config"
+})
 @EntityScan(basePackages = {"com.max420.Scrapr_server.models"})
 @SpringBootApplication
 public class ScraprServerApplication {
