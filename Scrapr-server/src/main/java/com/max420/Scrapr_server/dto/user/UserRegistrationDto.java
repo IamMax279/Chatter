@@ -1,19 +1,19 @@
-package com.max420.Scrapr_server.dto;
+package com.max420.Scrapr_server.dto.user;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NonNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDateTime;
-
-@Data
 @Builder
-public class UserDto {
-    private Long id;
+@Data
+public class UserRegistrationDto {
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
+    @NotBlank
     private String name;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
 }
