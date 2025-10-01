@@ -28,4 +28,14 @@ public class User {
     private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    public User(
+            String email,
+            String password,
+            String name
+    ) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
 }
