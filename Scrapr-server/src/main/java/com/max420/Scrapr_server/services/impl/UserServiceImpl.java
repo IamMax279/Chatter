@@ -18,13 +18,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createUser(UserRegistrationDto userDto) throws IllegalArgumentException {
+    public User createUser(UserRegistrationDto userDto) throws IllegalArgumentException {
         if (userRepository.existsByEmail(userDto.getEmail())) {
             throw new IllegalArgumentException("Account with this email already exists.");
         }
 
         User user = mapToUser(userDto);
         userRepository.save(user);
+
+        return user;
     }
 
     private User mapToUser(UserRegistrationDto userDto) {
