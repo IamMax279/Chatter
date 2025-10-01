@@ -20,4 +20,14 @@ public class UserRegistrationDto {
     private String password;
     @NotBlank(message = "Name is required.")
     private String name;
+
+    public UserRegistrationDto(
+            String email,
+            String password,
+            String name
+    ) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+    }
 }
