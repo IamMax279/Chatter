@@ -3,15 +3,20 @@ package com.max420.Scrapr_server.services.impl;
 import com.max420.Scrapr_server.dto.user.UserRegistrationDto;
 import com.max420.Scrapr_server.models.User;
 import com.max420.Scrapr_server.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.never;
 import static org.mockito.ArgumentMatchers.any;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class UserServiceImplTest {
@@ -20,6 +25,9 @@ public class UserServiceImplTest {
 
     @Mock
     private UserRepository userRepository;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
 
     @Test
     void createUser_shouldCreateUserIfDataIsValid() {
@@ -40,5 +48,21 @@ public class UserServiceImplTest {
 
         // verify is the .save() method has been called on userRepository
         verify(userRepository).save(any(User.class));
+    }
+
+    @Test
+    void createUser_shouldThrowErrorIfEmailAlreadyInDb() {
+        UserRegistrationDto userDto = new UserRegistrationDto(
+                "test123@mail.com",
+                "password123",
+                "test1234"
+        );
+
+        when(userRepository.existsByEmail(userDto.getEmail())).thenReturn(true);
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> userService.createUser(userDto));
+        verify(userRepository, never()).save(any(User.class));
     }
 }
