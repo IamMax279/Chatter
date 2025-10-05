@@ -5,4 +5,5 @@ import javax.crypto.SecretKey;
 public interface JwtService {
     SecretKey getKey(String key);
     String generateToken(String email);
+    boolean validateToken(String token);
 }
