@@ -41,6 +41,11 @@ public class JwtServiceImpl implements JwtService {
         }
     }
 
+    @Override
+    public String extractEmail(String token) {
+        return extractClaim(token, Claims::getSubject);
+    }
+
     // <T> - means the method is generic; the second T is the return type
     // Function<arg-type, return-type>
     private <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
