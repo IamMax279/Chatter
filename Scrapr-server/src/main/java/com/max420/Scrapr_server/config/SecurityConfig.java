@@ -28,7 +28,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity https) throws Exception {
         return https.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request ->
-                        request.anyRequest().permitAll())
+                        request
+                                .requestMatchers("/user/create-user", "user/sign-in")
+                                .permitAll()
+                                .anyRequest()
+                                .authenticated())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
