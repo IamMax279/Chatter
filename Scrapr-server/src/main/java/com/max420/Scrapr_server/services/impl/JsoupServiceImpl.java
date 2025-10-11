@@ -11,9 +11,9 @@ import java.util.List;
 public class JsoupServiceImpl implements JsoupService {
     @Override
     public List<String> fetchSomeData() throws IOException {
-        return Jsoup.connect("https://en.wikipedia.org/wiki/Richard_Mille")
+        return Jsoup.connect("https://x.com")
                 .get()
-                .select("h2")
+                .select("span.css-1jxf684.r-bcqeeo.r-1ttztb7.r-qvutc0.r-poiln3")
                 .eachText();
     }
 }
