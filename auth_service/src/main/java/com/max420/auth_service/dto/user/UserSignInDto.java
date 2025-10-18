@@ -11,7 +11,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class UserSignInDto {
     @NotBlank(message = "Email is required.")
-    @Email(message = "Wrong email formtat.")
+    @Email(message = "Wrong email format.")
     private String email;
     @NotBlank(message = "Password is required")
     private String password;
