@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.max420</groupId>
-	<artifactId>auth-service</artifactId>
+	<artifactId>auth_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Scrapr-server</name>
 	<description>Server for scrapr app</description>
