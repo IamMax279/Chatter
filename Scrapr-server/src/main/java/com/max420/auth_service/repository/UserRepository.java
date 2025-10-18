@@ -1,6 +1,6 @@
-package com.max420.Scrapr_server.repository;
+package com.max420.auth_service.repository;
 
-import com.max420.Scrapr_server.models.User;
+import com.max420.auth_service.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

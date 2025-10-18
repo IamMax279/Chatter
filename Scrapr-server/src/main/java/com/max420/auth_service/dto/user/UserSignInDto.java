@@ -1,4 +1,4 @@
-package com.max420.Scrapr_server.dto.user;
+package com.max420.auth_service.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

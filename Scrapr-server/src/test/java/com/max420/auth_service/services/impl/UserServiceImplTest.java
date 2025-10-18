@@ -1,9 +1,8 @@
-package com.max420.Scrapr_server.services.impl;
+package com.max420.auth_service.services.impl;
 
-import com.max420.Scrapr_server.dto.user.UserRegistrationDto;
-import com.max420.Scrapr_server.models.User;
-import com.max420.Scrapr_server.repository.UserRepository;
-import jakarta.transaction.Transactional;
+import com.max420.auth_service.dto.user.UserRegistrationDto;
+import com.max420.auth_service.models.User;
+import com.max420.auth_service.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

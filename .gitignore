@@ -1,5 +1,5 @@
 *.properties
 *.env
 *.iml
-.target/
+target/
 .idea/

@@ -1,8 +1,8 @@
-package com.max420.Scrapr_server.controllers;
+package com.max420.auth_service.controllers;
 
-import com.max420.Scrapr_server.dto.user.UserRegistrationDto;
-import com.max420.Scrapr_server.dto.user.UserSignInDto;
-import com.max420.Scrapr_server.services.UserService;
+import com.max420.auth_service.dto.user.UserRegistrationDto;
+import com.max420.auth_service.dto.user.UserSignInDto;
+import com.max420.auth_service.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

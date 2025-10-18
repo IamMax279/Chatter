@@ -1,4 +1,4 @@
-package com.max420.Scrapr_server.models;
+package com.max420.auth_service.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

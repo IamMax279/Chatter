@@ -1,6 +1,6 @@
-package com.max420.Scrapr_server.services.impl;
+package com.max420.auth_service.services.impl;
 
-import com.max420.Scrapr_server.services.JwtService;
+import com.max420.auth_service.services.JwtService;
 import org.springframework.beans.factory.annotation.Value;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;

@@ -1,4 +1,4 @@
-package com.max420.Scrapr_server;
+package com.max420.auth_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

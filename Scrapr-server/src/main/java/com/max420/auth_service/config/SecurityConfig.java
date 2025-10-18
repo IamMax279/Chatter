@@ -1,4 +1,4 @@
-package com.max420.Scrapr_server.config;
+package com.max420.auth_service.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

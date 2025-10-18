@@ -1,4 +1,4 @@
-package com.max420.Scrapr_server.services;
+package com.max420.auth_service.services;
 
 import javax.crypto.SecretKey;
 

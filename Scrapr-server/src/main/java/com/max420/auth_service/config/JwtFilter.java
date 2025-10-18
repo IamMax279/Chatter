@@ -1,7 +1,7 @@
-package com.max420.Scrapr_server.config;
+package com.max420.auth_service.config;
 
-import com.max420.Scrapr_server.services.JwtService;
-import com.max420.Scrapr_server.services.impl.UserDetailsServiceImpl;
+import com.max420.auth_service.services.JwtService;
+import com.max420.auth_service.services.impl.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
