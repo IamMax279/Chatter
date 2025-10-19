@@ -23,7 +23,7 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @PostMapping("/create-user")
+    @PostMapping("/sign-up")
     public ResponseEntity<?> createUser(@Valid @RequestBody UserRegistrationDto userDto) {
         try {
             userService.createUser(userDto);
