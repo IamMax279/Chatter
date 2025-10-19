@@ -1,4 +1,4 @@
-*.properties
+*application.yaml
 *.env
 *.iml
 target/
