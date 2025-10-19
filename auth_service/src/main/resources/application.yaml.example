@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: Scrapr-server
+  datasource:
+    url: jdbc:postgresql://localhost:5432/<DB_NAME>
+    username: <USERNAME>
+    password: <PASSWORD>
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+jwt:
+  secret:
+    key: <JWT_SECRET_KEY>
