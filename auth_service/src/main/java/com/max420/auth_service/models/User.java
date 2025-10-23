@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "user_credentials")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
