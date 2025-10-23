@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -13,9 +14,11 @@ import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.List;
 
 @Component
+@Order(0)
 public class JwtAuthFilter implements GlobalFilter {
     @Value("${jwt.secret.key}")
     private String secretKey;
@@ -46,10 +49,14 @@ public class JwtAuthFilter implements GlobalFilter {
             SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
 
             Claims claims = Jwts.parser()
-                    .setSigningKey(secretKey)
+                    .setSigningKey(key)
                     .build()
                     .parseSignedClaims(token)
                     .getPayload();
+
+            if (claims.getExpiration().before(new Date())) {
+                throw new Exception("JWT expired.");
+            }
 
             exchange = exchange.mutate()
                     .request(r -> r.headers(h -> h.add("X-User-email", claims.getSubject())))
