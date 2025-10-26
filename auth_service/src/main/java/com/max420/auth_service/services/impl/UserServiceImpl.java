@@ -51,7 +51,6 @@ public class UserServiceImpl implements UserService {
     private User mapToUser(UserRegistrationDto userDto) {
         return User.builder()
                 .email(userDto.getEmail())
-                .name(userDto.getName())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .build();
     }

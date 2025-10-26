@@ -23,7 +23,6 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private String name;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp
@@ -31,11 +30,9 @@ public class User {
 
     public User(
             String email,
-            String password,
-            String name
+            String password
     ) {
         this.email = email;
         this.password = password;
-        this.name = name;
     }
 }
