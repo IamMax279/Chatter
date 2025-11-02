@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -27,7 +29,7 @@ public class AuthController {
     public ResponseEntity<?> createUser(@Valid @RequestBody UserRegistrationDto userDto) {
         try {
             userService.createUser(userDto);
-            return ResponseEntity.ok("Successfully created a new user.");
+            return ResponseEntity.ok(Map.of("success", "Successfully created a new user."));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
