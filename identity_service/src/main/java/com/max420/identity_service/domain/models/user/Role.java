@@ -1,3 +1,6 @@
 package com.max420.identity_service.domain.models.user;
 
-public record UserId(Long value) {}
+public enum Role {
+    USER,
+    ADMIN
+}

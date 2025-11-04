@@ -1,3 +1,4 @@
 package com.max420.identity_service.domain.models.user;
 
-public record UserId(Long value) {}
+public record Username(String username) {
+}
