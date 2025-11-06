@@ -4,9 +4,11 @@ import java.util.regex.Pattern;
 
 public record Email(String value) {
     public Email(String value) {
-        Pattern pattern = Pattern.compile("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b");
-        if (pattern.matcher(value)) {
-
+        Pattern pattern = Pattern.compile("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}\\b");
+        if (pattern.matcher(value).matches()) {
+            throw new IllegalArgumentException("Invalid email.");
         }
+
+        this.value = value;
     }
 }
