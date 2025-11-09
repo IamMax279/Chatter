@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Getter
@@ -76,6 +77,7 @@ public class User {
     }
 
     public void changePassword(Password newPassword) {
+        Objects.requireNonNull(newPassword);
         if (this.password.equals(newPassword)) {
             throw new InvalidPasswordException("New password must be different from the previous one");
         }
@@ -84,6 +86,7 @@ public class User {
     }
 
     public void changeUsername(Username username) {
+        Objects.requireNonNull(username);
         if (this.username.equals(username)) {
             return;
         }
