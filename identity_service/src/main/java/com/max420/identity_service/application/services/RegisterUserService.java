@@ -5,7 +5,7 @@ import com.max420.identity_service.application.ports.in.RegisterUserUseCase;
 import com.max420.identity_service.application.ports.out.PasswordHasher;
 import com.max420.identity_service.application.ports.out.UserRepository;
 import com.max420.identity_service.domain.exceptions.EmailTakenException;
-import com.max420.identity_service.domain.models.user.UserId;
+import com.max420.identity_service.domain.models.user.*;
 
 public class RegisterUserService implements RegisterUserUseCase {
     private UserRepository userRepository;
@@ -17,6 +17,15 @@ public class RegisterUserService implements RegisterUserUseCase {
             throw new EmailTakenException("Account with this email already exists");
         }
 
-        String
+        HashedPassword hashedPassword = passwordHasher.hash(command.password());
+
+        UserId id = UserId.newId();
+        Email email = command.email();
+        Username username = command.username();
+
+        User user = new User(id, email, username, hashedPassword);
+        userRepository.save(user);
+
+        return id;
     }
 }

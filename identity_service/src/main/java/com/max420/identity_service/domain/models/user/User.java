@@ -15,7 +15,7 @@ import java.util.Set;
 public class User {
     private final UserId id;
     private final Email email;
-    private Password password;
+    private HashedPassword password;
     private Username username;
     private Set<Role> roles;
     private boolean isActive;
@@ -23,7 +23,7 @@ public class User {
     private final Instant createdAt;
 
     // For registering a new user
-    public User(UserId id, Email email, Username username, Password password) {
+    public User(UserId id, Email email, Username username, HashedPassword password) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -39,7 +39,7 @@ public class User {
     public User (
             UserId id,
             Email email,
-            Password password,
+            HashedPassword password,
             Username username,
             Set<Role> roles,
             boolean isActive,
@@ -76,7 +76,7 @@ public class User {
         return this.roles.contains(role);
     }
 
-    public void changePassword(Password newPassword) {
+    public void changePassword(HashedPassword newPassword) {
         Objects.requireNonNull(newPassword);
         if (this.password.equals(newPassword)) {
             throw new InvalidPasswordException("New password must be different from the previous one");
