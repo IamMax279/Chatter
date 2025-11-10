@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public record Email(String value) {
     public Email(String value) {
         Pattern pattern = Pattern.compile("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}\\b");
-        if (pattern.matcher(value).matches()) {
+        if (!pattern.matcher(value).matches()) {
             throw new InvalidEmailException("Invalid email.");
         }
 
