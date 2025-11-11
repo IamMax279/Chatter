@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -18,7 +19,7 @@ import java.util.Set;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
     @NonNull
     @Column(unique = true)
     private String email;
@@ -31,10 +32,8 @@ public class UserEntity {
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
-    @Column(columnDefinition = "boolean default true")
-    private boolean isActive = true;
-    @Column(columnDefinition = "boolean default false")
-    private boolean isVerified = false;
+    private boolean isActive;
+    private boolean isVerified;
     @CreationTimestamp
     private LocalDateTime createdAt;
 }
