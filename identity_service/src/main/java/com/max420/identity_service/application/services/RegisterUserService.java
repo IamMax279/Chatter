@@ -6,10 +6,17 @@ import com.max420.identity_service.application.ports.out.PasswordHasher;
 import com.max420.identity_service.application.ports.out.UserRepository;
 import com.max420.identity_service.domain.exceptions.EmailTakenException;
 import com.max420.identity_service.domain.models.user.*;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RegisterUserService implements RegisterUserUseCase {
-    private UserRepository userRepository;
-    private PasswordHasher passwordHasher;
+    private final UserRepository userRepository;
+    private final PasswordHasher passwordHasher;
+
+    public RegisterUserService(UserRepository userRepository, PasswordHasher passwordHasher) {
+        this.userRepository = userRepository;
+        this.passwordHasher = passwordHasher;
+    }
 
     @Override
     public UserId execute(RegisterUserCommand command) {
