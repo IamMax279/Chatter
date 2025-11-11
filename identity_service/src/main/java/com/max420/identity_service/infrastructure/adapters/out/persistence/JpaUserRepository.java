@@ -1,6 +1,13 @@
 package com.max420.identity_service.infrastructure.adapters.out.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface JpaUserRepositoryAdapter extends JpaRepository<UserEntity, Long>{
+import java.util.Optional;
+import java.util.UUID;
+
+@Repository
+public interface JpaUserRepository extends JpaRepository<UserEntity, UUID>{
+    Optional<UserEntity> findByEmail(String email);
+    boolean existsByEmail(String email);
 }
