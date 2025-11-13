@@ -1,9 +1,9 @@
 package com.max420.identity_service.domain.models.user;
 
-import java.util.UUID;
+import java.util.Random;
 
-public record UserId(UUID value) {
+public record UserId(Long value) {
     public static UserId newId() {
-        return new UserId(UUID.randomUUID());
+        return new UserId(new Random().nextLong());
     }
 }

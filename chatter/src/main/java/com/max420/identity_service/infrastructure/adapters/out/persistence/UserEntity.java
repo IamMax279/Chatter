@@ -7,7 +7,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +18,7 @@ import java.util.UUID;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
     @NonNull
     @Column(unique = true)
     private String email;

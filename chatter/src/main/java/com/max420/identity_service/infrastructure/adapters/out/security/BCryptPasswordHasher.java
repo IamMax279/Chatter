@@ -17,6 +17,6 @@ public class BCryptPasswordHasher implements PasswordHasher {
 
     @Override
     public boolean compare(HashedPassword hashedPassword, Password password) {
-        return encoder.matches(hashedPassword.value(), password.value());
+        return encoder.matches(password.value(), hashedPassword.value());
     }
 }

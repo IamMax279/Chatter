@@ -1,8 +1,5 @@
 package com.max420.identity_service.services.impl;
 
-import com.max420.identity_service.dto.user.UserRegistrationDto;
-import com.max420.identity_service.models.User;
-import com.max420.identity_service.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
