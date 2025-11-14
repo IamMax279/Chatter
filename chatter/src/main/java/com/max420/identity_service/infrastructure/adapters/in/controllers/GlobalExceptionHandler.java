@@ -1,6 +1,8 @@
 package com.max420.identity_service.infrastructure.adapters.in.controllers;
 
 import com.max420.identity_service.domain.exceptions.EmailTakenException;
+import com.max420.identity_service.domain.exceptions.InvalidPasswordException;
+import com.max420.identity_service.domain.exceptions.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,6 +14,20 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> handleEmailTaken(EmailTakenException e) {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)
+                .body("Something went wrong: " + e.getMessage());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<?> handleUserNotFound(UserNotFoundException e) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body("Something went wrong: " + e.getMessage());
+    }
+
+    @ExceptionHandler(InvalidPasswordException.class)
+    public ResponseEntity<?> handleInvalidPassword(InvalidPasswordException e) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
                 .body("Something went wrong: " + e.getMessage());
     }
 }
