@@ -7,13 +7,15 @@ import java.util.regex.Pattern;
 
 public record Email(String value) {
 
-    @JsonCreator
-    public Email(String value) {
+    public Email {
         Pattern pattern = Pattern.compile("\\b[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}\\b");
         if (!pattern.matcher(value).matches()) {
             throw new InvalidEmailException("Invalid email.");
         }
+    }
 
-        this.value = value;
+    @JsonCreator
+    public static Email fromString(String value) {
+        return new Email(value);
     }
 }
