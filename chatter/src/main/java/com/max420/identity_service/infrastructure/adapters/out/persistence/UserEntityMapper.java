@@ -12,6 +12,7 @@ public class UserEntityMapper {
                 .email(user.getEmail().value())
                 .password(user.getPassword().value())
                 .username(user.getUsername().value())
+                .roles(user.getRoles()) // TODO: tu gdzies moze byc blad
                 .build();
     }
 
