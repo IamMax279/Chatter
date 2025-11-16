@@ -34,7 +34,7 @@ public class LoginService implements LoginUseCase {
 
         User user = userRepository.findByEmail(command.email()).get();
         if (passwordHasher.compare(user.getPassword(), command.password())) {
-            return generator.generateToken(); // TODO: zaimplementowac adapter jwt
+            return generator.generateToken(command.email().value(), user.getRoles()); // TODO: zaimplementowac adapter jwt
         } else {
             throw new InvalidPasswordException("Passwords don't match");
         }
