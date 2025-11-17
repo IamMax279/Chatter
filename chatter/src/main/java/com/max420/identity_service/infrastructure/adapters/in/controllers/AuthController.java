@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-public class UserController {
+public class AuthController {
     private final RegisterUserUseCase registerUserUseCase;
     private final LoginUseCase loginUseCase;
 
-    public UserController(RegisterUserUseCase registerUserUseCase, LoginUseCase loginUseCase) {
+    public AuthController(RegisterUserUseCase registerUserUseCase, LoginUseCase loginUseCase) {
         this.registerUserUseCase = registerUserUseCase;
         this.loginUseCase = loginUseCase;
     }
@@ -24,6 +24,7 @@ public class UserController {
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody RegisterUserCommand command) {
         registerUserUseCase.execute(command);
+        String[] l = {"test", "test1"};
         return ResponseEntity.ok("success");
     }
 
