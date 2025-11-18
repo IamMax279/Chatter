@@ -1,10 +1,8 @@
 package com.max420.identity_service.domain.models.user;
 
 import com.max420.identity_service.domain.exceptions.InvalidPasswordException;
-import com.max420.identity_service.domain.exceptions.InvalidUsernameException;
 import com.max420.identity_service.domain.exceptions.NoRolesException;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.Instant;
 import java.util.HashSet;
@@ -17,6 +15,7 @@ public class User {
     private final Email email;
     private HashedPassword password;
     private Username username;
+    private Bio bio;
     private Set<Role> roles;
     private boolean isActive;
     private boolean isVerified;
@@ -28,6 +27,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
+        this.bio = new Bio("");
         this.roles = new HashSet<>();
         this.roles.add(Role.USER);
         this.isActive = true;
@@ -41,6 +41,7 @@ public class User {
             Email email,
             HashedPassword password,
             Username username,
+            Bio bio,
             Set<Role> roles,
             boolean isActive,
             boolean isVerified,
@@ -54,6 +55,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.username = username;
+        this.bio = bio;
         this.roles = new HashSet<>(roles);
         this.isActive = isActive;
         this.isVerified = isVerified;
@@ -92,6 +94,15 @@ public class User {
         }
 
         this.username = username;
+    }
+
+    public void changeBio(Bio bio) {
+        Objects.requireNonNull(bio);
+        if (this.bio.equals(bio)) {
+            return;
+        }
+
+        this.bio = bio;
     }
 
     public void activate() {
