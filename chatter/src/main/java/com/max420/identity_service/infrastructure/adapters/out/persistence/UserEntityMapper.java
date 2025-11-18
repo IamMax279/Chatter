@@ -12,7 +12,7 @@ public class UserEntityMapper {
                 .email(user.getEmail().value())
                 .password(user.getPassword().value())
                 .username(user.getUsername().value())
-                .roles(user.getRoles()) // TODO: tu gdzies moze byc blad
+                .roles(user.getRoles())
                 .build();
     }
 
@@ -22,6 +22,7 @@ public class UserEntityMapper {
                 new Email(entity.getEmail()),
                 new HashedPassword(entity.getPassword()),
                 new Username(entity.getUsername()),
+                new Bio(entity.getBio()),
                 entity.getRoles(),
                 entity.isActive(),
                 entity.isVerified(),

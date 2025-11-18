@@ -28,6 +28,8 @@ public class UserEntity {
     @NonNull
     @Column(unique = true)
     private String username;
+    @Builder.Default
+    private String bio = "";
     @NonNull
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
