@@ -11,9 +11,9 @@ public record RegisterUserCommand(
         Password password,
         Username username
 ) {
-    public RegisterUserCommand(Email email, Password password, Username username) {
-        this.email = Objects.requireNonNull(email);
-        this.password = Objects.requireNonNull(password);
-        this.username = Objects.requireNonNull(username);
+    public RegisterUserCommand {
+        Objects.requireNonNull(email);
+        Objects.requireNonNull(password);
+        Objects.requireNonNull(username);
     }
 }

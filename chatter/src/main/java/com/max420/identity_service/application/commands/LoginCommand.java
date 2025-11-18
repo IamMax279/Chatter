@@ -9,8 +9,8 @@ public record LoginCommand(
         Email email,
         Password password
 ) {
-    public LoginCommand(Email email, Password password) {
-        this.email = Objects.requireNonNull(email);
-        this.password = Objects.requireNonNull(password);
+    public LoginCommand {
+        Objects.requireNonNull(email);
+        Objects.requireNonNull(password);
     }
 }
