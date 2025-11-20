@@ -5,6 +5,7 @@ import com.max420.identity_service.domain.models.user.Email;
 import com.max420.identity_service.domain.models.user.User;
 import com.max420.identity_service.domain.models.user.UserId;
 import com.max420.identity_service.infrastructure.adapters.out.persistence.JpaUserRepository;
+import com.max420.identity_service.infrastructure.adapters.out.persistence.UserEntity;
 import com.max420.identity_service.infrastructure.adapters.out.persistence.UserEntityMapper;
 import org.springframework.stereotype.Repository;
 
@@ -26,13 +27,23 @@ public class JpaUserRepositoryAdapterImpl implements UserRepository {
     }
 
     @Override
+    public void update(UserEntity entity) {
+        userRepository.save(entity);
+    }
+
+    @Override
     public Optional<User> findById(UserId userId) {
         return userRepository.findById(userId.value())
                 .map(mapper::toUser);
     }
 
     @Override
-    public Optional<User> findByEmail(Email email) {
+    public Optional<UserEntity> findByEmail(Email email) {
+        return userRepository.findByEmail(email.value());
+    }
+
+    @Override
+    public Optional<User> findByEmailAndMap(Email email) {
         return userRepository.findByEmail(email.value())
                 .map(mapper::toUser);
     }
