@@ -16,6 +16,14 @@ public class UserEntityMapper {
                 .build();
     }
 
+    public void updateEntity(UserEntity entity, User user) {
+        entity.setUsername(user.getUsername().value());
+        entity.setBio(user.getBio().value());
+        entity.setRoles(user.getRoles());
+        entity.setActive(user.isActive());
+        entity.setVerified(user.isVerified());
+    }
+
     public User toUser(UserEntity entity) {
         return new User(
                 new UserId(entity.getId()),
