@@ -32,7 +32,7 @@ public class LoginService implements LoginUseCase {
             throw new UserNotFoundException("Account with this email doesn't exist");
         }
 
-        User user = userRepository.findByEmail(command.email()).get();
+        User user = userRepository.findByEmailAndMap(command.email()).get();
         if (passwordHasher.compare(user.getPassword(), command.password())) {
             return generator.generateToken(command.email().value(), user.getRoles());
         } else {
