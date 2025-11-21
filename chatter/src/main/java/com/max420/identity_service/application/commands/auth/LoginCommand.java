@@ -1,4 +1,4 @@
-package com.max420.identity_service.application.commands;
+package com.max420.identity_service.application.commands.auth;
 
 import com.max420.identity_service.domain.models.user.Email;
 import com.max420.identity_service.domain.models.user.Password;

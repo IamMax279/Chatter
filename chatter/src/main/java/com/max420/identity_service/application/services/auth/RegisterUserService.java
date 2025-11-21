@@ -1,7 +1,7 @@
-package com.max420.identity_service.application.services;
+package com.max420.identity_service.application.services.auth;
 
-import com.max420.identity_service.application.commands.RegisterUserCommand;
-import com.max420.identity_service.application.ports.in.RegisterUserUseCase;
+import com.max420.identity_service.application.commands.auth.RegisterUserCommand;
+import com.max420.identity_service.application.ports.in.auth.RegisterUserUseCase;
 import com.max420.identity_service.application.ports.out.PasswordHasher;
 import com.max420.identity_service.application.ports.out.UserRepository;
 import com.max420.identity_service.domain.exceptions.EmailTakenException;

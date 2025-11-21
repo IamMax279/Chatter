@@ -1,7 +1,7 @@
-package com.max420.identity_service.application.services;
+package com.max420.identity_service.application.services.auth;
 
-import com.max420.identity_service.application.commands.LoginCommand;
-import com.max420.identity_service.application.ports.in.LoginUseCase;
+import com.max420.identity_service.application.commands.auth.LoginCommand;
+import com.max420.identity_service.application.ports.in.auth.LoginUseCase;
 import com.max420.identity_service.application.ports.out.JwtService;
 import com.max420.identity_service.application.ports.out.PasswordHasher;
 import com.max420.identity_service.application.ports.out.UserRepository;

@@ -1,9 +1,9 @@
 package com.max420.identity_service.infrastructure.adapters.in.controllers;
 
-import com.max420.identity_service.application.commands.LoginCommand;
-import com.max420.identity_service.application.commands.RegisterUserCommand;
-import com.max420.identity_service.application.ports.in.LoginUseCase;
-import com.max420.identity_service.application.ports.in.RegisterUserUseCase;
+import com.max420.identity_service.application.commands.auth.LoginCommand;
+import com.max420.identity_service.application.commands.auth.RegisterUserCommand;
+import com.max420.identity_service.application.ports.in.auth.LoginUseCase;
+import com.max420.identity_service.application.ports.in.auth.RegisterUserUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,9 +1,9 @@
 package com.max420.identity_service.infrastructure.adapters.in.controllers;
 
-import com.max420.identity_service.application.commands.ChangeBioCommand;
-import com.max420.identity_service.application.commands.ChangeUsernameCommand;
-import com.max420.identity_service.application.ports.in.ChangeBioUseCase;
-import com.max420.identity_service.application.ports.in.ChangeUsernameUseCase;
+import com.max420.identity_service.application.commands.user.ChangeBioCommand;
+import com.max420.identity_service.application.commands.user.ChangeUsernameCommand;
+import com.max420.identity_service.application.ports.in.user.ChangeBioUseCase;
+import com.max420.identity_service.application.ports.in.user.ChangeUsernameUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
