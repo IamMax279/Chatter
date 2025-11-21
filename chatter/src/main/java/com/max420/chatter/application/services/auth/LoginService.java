@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginService implements LoginUseCase {
     private final UserRepository userRepository;
-    private final JwtService generator;
+    private final JwtService jwtService;
     private final PasswordHasher passwordHasher;
 
     public LoginService(
             UserRepository userRepository,
-            JwtService generator,
+            JwtService jwtService,
             PasswordHasher passwordHasher
     ) {
         this.userRepository = userRepository;
-        this.generator = generator;
+        this.jwtService = jwtService;
         this.passwordHasher = passwordHasher;
     }
 
@@ -34,7 +34,7 @@ public class LoginService implements LoginUseCase {
 
         User user = userRepository.findByEmailAndMap(command.email()).get();
         if (passwordHasher.compare(user.getPassword(), command.password())) {
-            return generator.generateToken(command.email().value(), user.getRoles());
+            return jwtService.generateToken(command.email().value(), user.getRoles());
         } else {
             throw new InvalidPasswordException("Passwords don't match");
         }
