@@ -1,12 +1,12 @@
-package com.max420.identity_service.infrastructure.adapters.out.persistence.impl;
+package com.max420.identity_service.infrastructure.adapters.out.persistence.user.impl;
 
 import com.max420.identity_service.application.ports.out.UserRepository;
 import com.max420.identity_service.domain.models.user.Email;
 import com.max420.identity_service.domain.models.user.User;
 import com.max420.identity_service.domain.models.user.UserId;
-import com.max420.identity_service.infrastructure.adapters.out.persistence.JpaUserRepository;
-import com.max420.identity_service.infrastructure.adapters.out.persistence.UserEntity;
-import com.max420.identity_service.infrastructure.adapters.out.persistence.UserEntityMapper;
+import com.max420.identity_service.infrastructure.adapters.out.persistence.user.JpaUserRepository;
+import com.max420.identity_service.infrastructure.adapters.out.persistence.user.UserEntity;
+import com.max420.identity_service.infrastructure.adapters.out.persistence.user.UserEntityMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

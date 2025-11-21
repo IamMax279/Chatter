@@ -1,4 +1,4 @@
-package com.max420.identity_service.infrastructure.adapters.out.persistence;
+package com.max420.identity_service.infrastructure.adapters.out.persistence.user;
 
 import com.max420.identity_service.domain.models.user.Role;
 import jakarta.persistence.*;
