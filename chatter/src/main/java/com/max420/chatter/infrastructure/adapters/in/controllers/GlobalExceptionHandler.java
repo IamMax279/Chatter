@@ -1,8 +1,8 @@
 package com.max420.chatter.infrastructure.adapters.in.controllers;
 
-import com.max420.chatter.domain.exceptions.EmailTakenException;
-import com.max420.chatter.domain.exceptions.InvalidPasswordException;
-import com.max420.chatter.domain.exceptions.UserNotFoundException;
+import com.max420.chatter.domain.exceptions.user.EmailTakenException;
+import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
+import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

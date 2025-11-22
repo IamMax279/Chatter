@@ -5,8 +5,8 @@ import com.max420.chatter.application.ports.out.JwtService;
 import com.max420.chatter.application.ports.out.PasswordHasher;
 import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.application.services.auth.LoginService;
-import com.max420.chatter.domain.exceptions.InvalidPasswordException;
-import com.max420.chatter.domain.exceptions.UserNotFoundException;
+import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
+import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 

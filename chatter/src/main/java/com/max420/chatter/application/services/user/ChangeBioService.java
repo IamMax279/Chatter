@@ -3,7 +3,7 @@ package com.max420.chatter.application.services.user;
 import com.max420.chatter.application.commands.user.ChangeBioCommand;
 import com.max420.chatter.application.ports.in.user.ChangeBioUseCase;
 import com.max420.chatter.application.ports.out.UserRepository;
-import com.max420.chatter.domain.exceptions.UserNotFoundException;
+import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;

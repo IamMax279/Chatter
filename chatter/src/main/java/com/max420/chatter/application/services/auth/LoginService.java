@@ -5,8 +5,8 @@ import com.max420.chatter.application.ports.in.auth.LoginUseCase;
 import com.max420.chatter.application.ports.out.JwtService;
 import com.max420.chatter.application.ports.out.PasswordHasher;
 import com.max420.chatter.application.ports.out.UserRepository;
-import com.max420.chatter.domain.exceptions.InvalidPasswordException;
-import com.max420.chatter.domain.exceptions.UserNotFoundException;
+import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
+import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.User;
 import org.springframework.stereotype.Service;
 

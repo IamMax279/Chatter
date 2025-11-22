@@ -1,7 +1,7 @@
 package com.max420.chatter.domain.models.user;
 
-import com.max420.chatter.domain.exceptions.InvalidPasswordException;
-import com.max420.chatter.domain.exceptions.NoRolesException;
+import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
+import com.max420.chatter.domain.exceptions.user.NoRolesException;
 import lombok.Getter;
 
 import java.time.Instant;

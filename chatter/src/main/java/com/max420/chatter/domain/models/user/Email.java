@@ -1,7 +1,7 @@
 package com.max420.chatter.domain.models.user;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.max420.chatter.domain.exceptions.InvalidEmailException;
+import com.max420.chatter.domain.exceptions.user.InvalidEmailException;
 
 import java.util.regex.Pattern;
 

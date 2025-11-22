@@ -4,7 +4,7 @@ import com.max420.chatter.application.commands.auth.RegisterUserCommand;
 import com.max420.chatter.application.ports.out.PasswordHasher;
 import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.application.services.auth.RegisterUserService;
-import com.max420.chatter.domain.exceptions.EmailTakenException;
+import com.max420.chatter.domain.exceptions.user.EmailTakenException;
 import com.max420.chatter.domain.models.user.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
