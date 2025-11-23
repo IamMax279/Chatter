@@ -30,6 +30,6 @@ public class AuthController {
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@RequestBody LoginCommand command) {
         String token = loginUseCase.execute(command);
-        return ResponseEntity.ok("token: " + token);
+        return ResponseEntity.ok(token);
     }
 }
