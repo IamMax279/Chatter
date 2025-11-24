@@ -10,6 +10,8 @@ import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.User;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LoginService implements LoginUseCase {
     private final UserRepository userRepository;
@@ -28,13 +30,13 @@ public class LoginService implements LoginUseCase {
 
     @Override
     public String execute(LoginCommand command) {
-        if (!userRepository.existsByEmail(command.email())) {
+        Optional<User> user = userRepository.findByEmailAndMap(command.email());
+        if (user.isEmpty()) {
             throw new UserNotFoundException("Account with this email doesn't exist");
         }
 
-        User user = userRepository.findByEmailAndMap(command.email()).get();
-        if (passwordHasher.compare(user.getPassword(), command.password())) {
-            return jwtService.generateToken(command.email().value(), user.getRoles());
+        if (passwordHasher.compare(user.get().getPassword(), command.password())) {
+            return jwtService.generateToken(command.email().value(), user.get().getRoles());
         } else {
             throw new InvalidPasswordException("Passwords don't match");
         }
