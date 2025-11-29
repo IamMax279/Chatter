@@ -6,8 +6,8 @@ import lombok.Getter;
 @Getter
 public class Post {
     private final PostId postId;
-    private Title title;
-    private Content content;
+    private final Title title;
+    private final Content content;
     // TODO: reference community
     // TODO: reference upvote count
     // author reference
@@ -25,8 +25,12 @@ public class Post {
     public Post(
         PostId postId,
         Title title,
-
+        Content content,
+        UserId authorId
     ) {
-
+        this.postId = postId;
+        this.title = title;
+        this.content = content;
+        this.authorId = authorId;
     }
 }
