@@ -7,6 +7,7 @@ import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
+import com.max420.chatter.infrastructure.adapters.in.dto.AuthPrincipalDto;
 import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;
 import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntityMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,13 +25,13 @@ public class UserService implements UserPort {
 
     @Override
     public void changeUsername(ChangeUsernameCommand command) {
-        Object email = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (!(email instanceof String)) {
+        if (!(principal instanceof AuthPrincipalDto)) {
             throw new IllegalStateException("The auth principal is not a string");
         }
 
-        UserEntity entity = userRepository.findByEmail(new Email((String) email))
+        UserEntity entity = userRepository.findByEmail(new Email(((AuthPrincipalDto) principal).email()))
                 .orElseThrow(() -> new UserNotFoundException("User with such email address does not exist"));
         User user = mapper.toUser(entity);
         user.changeUsername(command.newUsername());
@@ -41,13 +42,13 @@ public class UserService implements UserPort {
 
     @Override
     public void changeBio(ChangeBioCommand command) {
-        Object email = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (!(email instanceof String)) {
+        if (!(principal instanceof AuthPrincipalDto)) {
             throw new IllegalStateException("The auth principal is not a string");
         }
 
-        UserEntity entity = userRepository.findByEmail(new Email((String) email))
+        UserEntity entity = userRepository.findByEmail(new Email(((AuthPrincipalDto) principal).email()))
                 .orElseThrow(() -> new UserNotFoundException("User with such email address does not exist"));
         User user = mapper.toUser(entity);
         user.changeBio(command.bio());
