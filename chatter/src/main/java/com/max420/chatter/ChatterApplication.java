@@ -9,9 +9,9 @@ import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServic
         SecurityAutoConfiguration.class,
         UserDetailsServiceAutoConfiguration.class
 })
-public class IdentityServiceApplication {
+public class ChatterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IdentityServiceApplication.class, args);
+		SpringApplication.run(ChatterApplication.class, args);
 	}
 }
