@@ -25,9 +25,10 @@ public class JwtServiceAdapterImpl implements JwtService {
     }
 
     @Override
-    public String generateToken(String email, Set<Role> roles) {
+    public String generateToken(String userId, String email, Set<Role> roles) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("sub", email);
+        claims.put("sub", userId);
+        claims.put("email", email);
         claims.put("roles", roles);
         claims.put("iat", new Date(System.currentTimeMillis()));
         claims.put("exp", new Date(System.currentTimeMillis() + 1000 * 60 * 15));
@@ -40,7 +41,18 @@ public class JwtServiceAdapterImpl implements JwtService {
 
     @Override
     public String extractEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
+        return extractClaim(token, claims -> {
+            Object email = claims.get("email");
+            if (email instanceof String) {
+                return (String) email;
+            }
+            return "";
+        });
+    }
+
+    @Override
+    public Long extractUserId(String token) {
+        return Long.valueOf(extractClaim(token, Claims::getSubject));
     }
 
     @Override
