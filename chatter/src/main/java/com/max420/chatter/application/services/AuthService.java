@@ -56,7 +56,7 @@ public class AuthService implements AuthPort {
         }
 
         if (passwordHasher.compare(user.get().getPassword(), command.password())) {
-            return jwtService.generateToken(command.email().value(), user.get().getRoles());
+            return jwtService.generateToken(user.get().getId().value().toString(), command.email().value(), user.get().getRoles());
         } else {
             throw new InvalidPasswordException("Passwords don't match");
         }
