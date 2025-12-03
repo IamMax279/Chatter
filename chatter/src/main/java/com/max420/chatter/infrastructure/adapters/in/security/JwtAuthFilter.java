@@ -2,6 +2,7 @@ package com.max420.chatter.infrastructure.adapters.in.security;
 
 import com.max420.chatter.application.ports.out.JwtService;
 import com.max420.chatter.domain.models.user.Role;
+import com.max420.chatter.infrastructure.adapters.in.dto.AuthPrincipalDto;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,11 +39,14 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
             try {
+                Long userId = jwtService.extractUserId(token);
                 String email = jwtService.extractEmail(token);
                 Set<Role> roles = jwtService.extractRoles(token);
 
                 UsernamePasswordAuthenticationToken auth =
-                        new UsernamePasswordAuthenticationToken(email, null,
+                        new UsernamePasswordAuthenticationToken(
+                                new AuthPrincipalDto(userId, email),
+                                null,
                                 // TODO: implement custom UserDetails/DTO
                                 roles.stream().map(Role::toString).map(SimpleGrantedAuthority::new).toList());
 
