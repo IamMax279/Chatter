@@ -1,12 +1,15 @@
 package com.max420.chatter.infrastructure.adapters.out.persistence.user;
 
 import com.max420.chatter.domain.models.user.Role;
+import com.max420.chatter.infrastructure.adapters.out.persistence.post.PostEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -39,4 +42,6 @@ public class UserEntity {
     private boolean isVerified;
     @CreationTimestamp
     private LocalDateTime createdAt;
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PostEntity> posts = new ArrayList<>();
 }
