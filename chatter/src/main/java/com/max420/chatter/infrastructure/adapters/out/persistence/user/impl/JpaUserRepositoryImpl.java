@@ -12,11 +12,11 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class JpaUserRepositoryAdapterImpl implements UserRepository {
+public class JpaUserRepositoryImpl implements UserRepository {
     private final JpaUserRepository userRepository;
     private final UserEntityMapper mapper;
 
-    public JpaUserRepositoryAdapterImpl(UserEntityMapper mapper, JpaUserRepository userRepository) {
+    public JpaUserRepositoryImpl(UserEntityMapper mapper, JpaUserRepository userRepository) {
         this.userRepository = userRepository;
         this.mapper = mapper;
     }
