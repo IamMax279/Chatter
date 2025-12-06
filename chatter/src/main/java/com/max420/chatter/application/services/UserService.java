@@ -28,7 +28,7 @@ public class UserService implements UserPort {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (!(principal instanceof AuthPrincipalDto)) {
-            throw new IllegalStateException("The auth principal is not a string");
+            throw new IllegalStateException("The auth principal object is invalid");
         }
 
         UserEntity entity = userRepository.findByEmail(new Email(((AuthPrincipalDto) principal).email()))
@@ -45,7 +45,7 @@ public class UserService implements UserPort {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (!(principal instanceof AuthPrincipalDto)) {
-            throw new IllegalStateException("The auth principal is not a string");
+            throw new IllegalStateException("The auth principal object is invalid");
         }
 
         UserEntity entity = userRepository.findByEmail(new Email(((AuthPrincipalDto) principal).email()))
