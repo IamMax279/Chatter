@@ -1,6 +1,6 @@
-package com.max420.chatter.infrastructure.adapters.out.persistence.post;
+package com.max420.chatter.infrastructure.persistence.post;
 
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;
+import com.max420.chatter.infrastructure.persistence.user.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

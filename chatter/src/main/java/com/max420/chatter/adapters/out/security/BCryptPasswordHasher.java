@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.out.security;
+package com.max420.chatter.adapters.out.security;
 
 import com.max420.chatter.application.ports.out.PasswordHasher;
 import com.max420.chatter.domain.models.user.HashedPassword;

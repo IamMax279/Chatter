@@ -8,7 +8,7 @@ import com.max420.chatter.domain.models.post.Post;
 import com.max420.chatter.domain.models.post.PostId;
 import com.max420.chatter.domain.models.post.Title;
 import com.max420.chatter.domain.models.user.UserId;
-import com.max420.chatter.infrastructure.adapters.in.dto.AuthPrincipalDto;
+import com.max420.chatter.adapters.in.dto.AuthPrincipalDto;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 

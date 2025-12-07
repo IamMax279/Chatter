@@ -3,7 +3,7 @@ package com.max420.chatter.application.ports.out;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.domain.models.user.UserId;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;
+import com.max420.chatter.infrastructure.persistence.user.UserEntity;
 
 import java.util.Optional;
 

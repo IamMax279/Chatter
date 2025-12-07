@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.in.controllers;
+package com.max420.chatter.adapters.in.controllers;
 
 import com.max420.chatter.application.commands.user.ChangeBioCommand;
 import com.max420.chatter.application.commands.user.ChangeUsernameCommand;

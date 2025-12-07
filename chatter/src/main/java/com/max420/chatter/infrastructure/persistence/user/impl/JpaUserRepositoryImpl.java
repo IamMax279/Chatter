@@ -1,12 +1,12 @@
-package com.max420.chatter.infrastructure.adapters.out.persistence.user.impl;
+package com.max420.chatter.infrastructure.persistence.user.impl;
 
 import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.domain.models.user.UserId;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.JpaUserRepository;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntityMapper;
+import com.max420.chatter.infrastructure.persistence.user.JpaUserRepository;
+import com.max420.chatter.infrastructure.persistence.user.UserEntity;
+import com.max420.chatter.infrastructure.persistence.user.UserEntityMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

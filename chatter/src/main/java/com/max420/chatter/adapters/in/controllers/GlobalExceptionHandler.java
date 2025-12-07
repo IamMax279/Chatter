@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.in.controllers;
+package com.max420.chatter.adapters.in.controllers;
 
 import com.max420.chatter.domain.exceptions.user.EmailTakenException;
 import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;

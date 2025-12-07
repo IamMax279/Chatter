@@ -1,7 +1,7 @@
-package com.max420.chatter.infrastructure.adapters.out.persistence.user;
+package com.max420.chatter.infrastructure.persistence.user;
 
 import com.max420.chatter.domain.models.user.Role;
-import com.max420.chatter.infrastructure.adapters.out.persistence.post.PostEntity;
+import com.max420.chatter.infrastructure.persistence.post.PostEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

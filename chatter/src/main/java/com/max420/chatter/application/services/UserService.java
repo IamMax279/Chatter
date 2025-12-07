@@ -7,9 +7,9 @@ import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
-import com.max420.chatter.infrastructure.adapters.in.dto.AuthPrincipalDto;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntity;
-import com.max420.chatter.infrastructure.adapters.out.persistence.user.UserEntityMapper;
+import com.max420.chatter.adapters.in.dto.AuthPrincipalDto;
+import com.max420.chatter.infrastructure.persistence.user.UserEntity;
+import com.max420.chatter.infrastructure.persistence.user.UserEntityMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.out.persistence.user;
+package com.max420.chatter.infrastructure.persistence.user;
 
 import com.max420.chatter.domain.models.user.*;
 import org.springframework.stereotype.Component;

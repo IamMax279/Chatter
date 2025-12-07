@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.out.jwt;
+package com.max420.chatter.adapters.out.jwt;
 
 import com.max420.chatter.application.ports.out.JwtService;
 import com.max420.chatter.domain.models.user.Role;

@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.adapters.out.persistence.post;
+package com.max420.chatter.infrastructure.persistence.post;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
