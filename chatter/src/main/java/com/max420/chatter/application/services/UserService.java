@@ -9,16 +9,16 @@ import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.adapters.in.dto.AuthPrincipalDto;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
-import com.max420.chatter.infrastructure.persistence.user.UserEntityMapper;
+import com.max420.chatter.infrastructure.persistence.user.UserMapper;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements UserPort {
     private final UserRepository userRepository;
-    private final UserEntityMapper mapper;
+    private final UserMapper mapper;
 
-    public UserService(UserRepository userRepository, UserEntityMapper mapper) {
+    public UserService(UserRepository userRepository, UserMapper mapper) {
         this.userRepository = userRepository;
         this.mapper = mapper;
     }
