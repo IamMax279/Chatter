@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.time.ZoneId;
 
 @Component
-public class UserEntityMapper {
+public class UserMapper {
     public UserEntity toUserEntity(User user) {
         return UserEntity.builder()
                 .email(user.getEmail().value())
