@@ -6,7 +6,7 @@ import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.domain.models.user.UserId;
 import com.max420.chatter.infrastructure.persistence.user.JpaUserRepository;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
-import com.max420.chatter.infrastructure.persistence.user.UserEntityMapper;
+import com.max420.chatter.infrastructure.persistence.user.UserMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -14,9 +14,9 @@ import java.util.Optional;
 @Repository
 public class JpaUserRepositoryImpl implements UserRepository {
     private final JpaUserRepository userRepository;
-    private final UserEntityMapper mapper;
+    private final UserMapper mapper;
 
-    public JpaUserRepositoryImpl(UserEntityMapper mapper, JpaUserRepository userRepository) {
+    public JpaUserRepositoryImpl(UserMapper mapper, JpaUserRepository userRepository) {
         this.userRepository = userRepository;
         this.mapper = mapper;
     }
