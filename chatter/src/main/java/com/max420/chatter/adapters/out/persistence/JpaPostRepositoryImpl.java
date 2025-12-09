@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.persistence.post.impl;
+package com.max420.chatter.adapters.out.persistence;
 
 import com.max420.chatter.application.ports.out.PostRepository;
 import com.max420.chatter.domain.models.post.Post;

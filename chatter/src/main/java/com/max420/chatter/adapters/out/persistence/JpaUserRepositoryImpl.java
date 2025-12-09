@@ -1,4 +1,4 @@
-package com.max420.chatter.infrastructure.persistence.user.impl;
+package com.max420.chatter.adapters.out.persistence;
 
 import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.domain.models.user.Email;
