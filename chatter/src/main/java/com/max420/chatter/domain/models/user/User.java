@@ -2,12 +2,14 @@ package com.max420.chatter.domain.models.user;
 
 import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
 import com.max420.chatter.domain.exceptions.user.NoRolesException;
+import com.max420.chatter.domain.exceptions.user.UsernameTakenException;
 import lombok.Getter;
 
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Predicate;
 
 @Getter
 public class User {
@@ -87,10 +89,14 @@ public class User {
         this.password = newPassword;
     }
 
-    public void changeUsername(Username username) {
+    public void changeUsername(Username username, Predicate<Username> isTaken) {
         Objects.requireNonNull(username);
         if (this.username.equals(username)) {
             return;
+        }
+
+        if (isTaken.test(username)) {
+            throw new UsernameTakenException("This username is taken");
         }
 
         this.username = username;
