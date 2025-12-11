@@ -34,7 +34,10 @@ public class UserService implements UserPort {
         UserEntity entity = userRepository.findByEmail(new Email(((AuthPrincipalDto) principal).email()))
                 .orElseThrow(() -> new UserNotFoundException("User with such email address does not exist"));
         User user = mapper.toUser(entity);
-        user.changeUsername(command.newUsername());
+        user.changeUsername(
+                command.newUsername(),
+                userRepository::existsByUsername
+        );
 
         mapper.updateEntity(entity, user);
         userRepository.update(entity);
