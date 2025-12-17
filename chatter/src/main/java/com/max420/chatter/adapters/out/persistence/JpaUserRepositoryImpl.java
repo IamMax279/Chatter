@@ -4,6 +4,7 @@ import com.max420.chatter.application.ports.out.UserRepository;
 import com.max420.chatter.domain.models.user.Email;
 import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.domain.models.user.UserId;
+import com.max420.chatter.domain.models.user.Username;
 import com.max420.chatter.infrastructure.persistence.user.JpaUserRepository;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
 import com.max420.chatter.infrastructure.persistence.user.UserMapper;
@@ -56,5 +57,10 @@ public class JpaUserRepositoryImpl implements UserRepository {
     @Override
     public boolean existsByEmail(Email email) {
         return userRepository.existsByEmail(email.value());
+    }
+
+    @Override
+    public boolean existsByUsername(Username username) {
+        return userRepository.existsByUsername(username.value());
     }
 }

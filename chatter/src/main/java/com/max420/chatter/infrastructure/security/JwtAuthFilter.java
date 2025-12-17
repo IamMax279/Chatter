@@ -2,7 +2,7 @@ package com.max420.chatter.infrastructure.security;
 
 import com.max420.chatter.application.ports.out.JwtService;
 import com.max420.chatter.domain.models.user.Role;
-import com.max420.chatter.adapters.in.dto.AuthPrincipalDto;
+import com.max420.chatter.adapters.in.dto.auth.AuthPrincipalDto;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
