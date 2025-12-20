@@ -10,6 +10,7 @@ import com.max420.chatter.domain.models.user.User;
 import com.max420.chatter.adapters.in.dto.auth.AuthPrincipalDto;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
 import com.max420.chatter.infrastructure.persistence.user.UserMapper;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class UserService implements UserPort {
     private final UserRepository userRepository;
     private final UserMapper mapper;
 
-    public UserService(UserRepository userRepository, UserMapper mapper) {
+    public UserService(@Lazy UserRepository userRepository, UserMapper mapper) {
         this.userRepository = userRepository;
         this.mapper = mapper;
     }

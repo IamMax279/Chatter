@@ -8,16 +8,19 @@ import com.max420.chatter.infrastructure.persistence.post.JpaPostRepository;
 import com.max420.chatter.infrastructure.persistence.post.PostMapper;
 import com.max420.chatter.infrastructure.persistence.user.JpaUserRepository;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public class JpaPostRepositoryImpl implements PostRepository {
     private final JpaPostRepository postRepository;
     private final JpaUserRepository userRepository;
     private final PostMapper mapper;
 
     public JpaPostRepositoryImpl(
-            JpaPostRepository postRepository,
+            @Lazy JpaPostRepository postRepository,
             JpaUserRepository userRepository,
             PostMapper mapper
     ) {

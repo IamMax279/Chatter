@@ -8,6 +8,7 @@ import com.max420.chatter.domain.models.user.Username;
 import com.max420.chatter.infrastructure.persistence.user.JpaUserRepository;
 import com.max420.chatter.infrastructure.persistence.user.UserEntity;
 import com.max420.chatter.infrastructure.persistence.user.UserMapper;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -17,7 +18,7 @@ public class JpaUserRepositoryImpl implements UserRepository {
     private final JpaUserRepository userRepository;
     private final UserMapper mapper;
 
-    public JpaUserRepositoryImpl(UserMapper mapper, JpaUserRepository userRepository) {
+    public JpaUserRepositoryImpl(UserMapper mapper, @Lazy JpaUserRepository userRepository) {
         this.userRepository = userRepository;
         this.mapper = mapper;
     }

@@ -9,6 +9,7 @@ import com.max420.chatter.domain.models.post.PostId;
 import com.max420.chatter.domain.models.post.Title;
 import com.max420.chatter.domain.models.user.UserId;
 import com.max420.chatter.adapters.in.dto.auth.AuthPrincipalDto;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class PostService implements PostPort {
     private final PostRepository postRepository;
 
-    public PostService(PostRepository postRepository) {
+    public PostService(@Lazy PostRepository postRepository) {
         this.postRepository = postRepository;
     }
 

@@ -10,6 +10,7 @@ import com.max420.chatter.domain.exceptions.user.EmailTakenException;
 import com.max420.chatter.domain.exceptions.user.InvalidPasswordException;
 import com.max420.chatter.domain.exceptions.user.UserNotFoundException;
 import com.max420.chatter.domain.models.user.*;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -21,7 +22,7 @@ public class AuthService implements AuthPort {
     private final JwtService jwtService;
 
     public AuthService(
-            UserRepository userRepository,
+            @Lazy UserRepository userRepository,
             PasswordHasher passwordHasher,
             JwtService jwtService
     ) {
